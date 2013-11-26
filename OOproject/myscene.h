@@ -38,8 +38,7 @@ class myscene: public QGraphicsScene
         usecase *uc;
 
         int clinecount;
-        //QList<comline*> carray;
-        QList<LineObject*> carray;
+
         comline *cline;
 
         int glinecount;
@@ -49,6 +48,7 @@ class myscene: public QGraphicsScene
 
         int count;
 
+        void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     protected:
         void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
         void mousePressEvent(QGraphicsSceneMouseEvent *event);

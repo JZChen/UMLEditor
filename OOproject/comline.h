@@ -5,19 +5,14 @@
 #include<Qdebug>
 #include<QGraphicsItem>
 #include<cmath>
+#include<QGraphicsLineItem>
 
-#include "lineobject.h"
-
-class comline : public LineObject
+class comline : public QGraphicsLineItem
 {
 public:
     comline(int sx , int sy , int ex , int ey);
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    /*
-    int startx,starty,endx,endy,num;
-    double vx , vy , inix , iniy , length;
-    */
 
 };
 

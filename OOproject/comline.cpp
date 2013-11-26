@@ -1,15 +1,12 @@
 #include "comline.h"
 comline::comline(int sx , int sy , int ex , int ey)
 {
-    //setFlag(ItemIsMovable,true);
-    startx = sx;//傳入的x和y去畫
-    starty = sy;
-    endx = ex;
-    endy = ey;
+   QGraphicsLineItem::setLine(sx,sy,ex,ey);
 }
 
 void comline::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    /*
     QPolygon polygon;
     QPen blackpen(Qt::black,3);
     painter->setPen(blackpen);
@@ -26,6 +23,7 @@ void comline::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
                 << QPoint( endx - (vy/length) , endy + (vx/length) )
                 << QPoint( endx + (vy/length) , endy - (vx/length) );
     painter->drawPolygon(polygon);
+    */
     update();
 }
 

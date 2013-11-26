@@ -10,20 +10,22 @@
 #include <QGraphicsSceneDragDropEvent>
 #include <QString>
 #include <QInputDialog>
+#include <QGraphicsLineItem>
 
-class assoline : public QGraphicsItem
+class assoline : public QGraphicsLineItem
 {
     public:
+
         assoline(int sx , int sy , int ex , int ey);
-        QRectF boundingRect() const;
         void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+        /*
         int startx , starty , endx , endy;
         bool selected;
         bool selected1;
         QRectF rec;
         int num;
         QString str;
-
+        */
 
     protected:
         void mousePressEvent(QGraphicsSceneMouseEvent *event);
