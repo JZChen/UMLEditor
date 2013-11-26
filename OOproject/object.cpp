@@ -2,49 +2,47 @@
 
 object::object(int sx , int sy)
 {
-
     setPos(sx,sy);
 }
 
 
 QRectF object::boundingRect() const
 {
-    return QRectF(this->pos().x(),this->pos().y(),60,60);
+    return QRectF(0,0,60,60);
 }
 
 void object::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    //painter->fillRect(QRectF(this->pos().x()+10,this->pos().y()+10,100,100),brush);
-
-    /*
-    painter->drawPoint( this->pos() );
-
-
-    QRectF rectangle(10.0, 20.0, 80.0, 60.0);
-    painter->drawRect( this->boundingRect() );
-    */
-
+    QBrush brush1(Qt::blue);
+    QBrush brush2(Qt::white);
+    painter->fillRect( this->boundingRect() , brush2 );
     painter->drawRect( this->boundingRect() );
 
-    //qDebug()<<  this->boundingRect().center() ;
-    //painter->drawRect( this->pos().x()-60 , this->pos().y()-60 , 120 ,120 );
-    //update();
+    if( isSelected() ){
+        painter->fillRect( QRectF(28,0,5,5),brush1  );
+        painter->fillRect( QRectF(28,55,5,5),brush1  );
+        painter->fillRect( QRectF(0,28,5,5),brush1  );
+        painter->fillRect( QRectF(55,28,5,5),brush1  );
+    }
+
 
 }
 
 
 void object::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-
+    update();
     QGraphicsItem::mousePressEvent(event);
 }
 
 void object::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
+    update();
     QGraphicsItem::mouseMoveEvent(event);
 }
 
 void object::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
+    update();
     QGraphicsItem::mouseReleaseEvent(event);
 }

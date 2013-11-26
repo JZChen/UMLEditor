@@ -21,7 +21,15 @@ SOURCES += main.cpp\
     assoline.cpp \
     usecase.cpp \
     group.cpp \
-    lineobject.cpp
+    lineobject.cpp \
+    switchcase.cpp \
+    usecaseswitch.cpp \
+    associateswitch.cpp \
+    objectswitch.cpp \
+    selectionswitch.cpp \
+    compositeswitch.cpp \
+    generationswitch.cpp \
+    umlobject.cpp
 
 HEADERS  += mainwindow.h \
     myscene.h \
@@ -31,7 +39,15 @@ HEADERS  += mainwindow.h \
     assoline.h \
     usecase.h \
     group.h \
-    lineobject.h
+    lineobject.h \
+    switchcase.h \
+    usecaseswitch.h \
+    associateswitch.h \
+    objectswitch.h \
+    selectionswitch.h \
+    compositeswitch.h \
+    generationswitch.h \
+    umlobject.h
 
 FORMS    += mainwindow.ui
 

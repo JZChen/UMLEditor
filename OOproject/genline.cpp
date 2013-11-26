@@ -1,11 +1,12 @@
 #include "genline.h"
 
-genline::genline(int sx , int sy , int ex , int ey)
+genline::genline(UMLObject *s,UMLObject *e)
 {
-    startx = sx;//傳入的x和y去畫
-    starty = sy;
-    endx = ex;
-    endy = ey;
+    this->port0 = s;
+    this->port1 = e;
+
+    setLine(s->pos().x(),s->pos().y(),e->pos().y(),e->pos().y());
+
 }
 
 void genline::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -14,27 +15,23 @@ void genline::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
     QPen blackpen(Qt::black,3);
     painter->setPen(blackpen);
 
-    vx = endx - startx;//線的x向量
-    vy = endy - starty;
+    double vx = port1->scenePos().x() - port0->scenePos().x();//線的x向量
+    double vy = port1->scenePos().y()- port0->scenePos().y();
+    int endx = port1->scenePos().x();
+    int endy = port1->scenePos().y();
+    double inix = pow(vx , 2);//正規化使用x的平方
+    double iniy = pow(vy , 2);//正規化使用y的平方
+    double length = pow(inix + iniy,0.5)/20;
 
-    inix = pow(vx , 2);//正規化使用x的平方
-    iniy = pow(vy , 2);//正規化使用y的平方
-    length = pow(inix + iniy,0.5)/20;
-
-    painter->drawLine(startx,starty,endx,endy);
+    // draw the triangle
     polygon << QPoint( endx + (vx/length) , endy + (vy/length) )
-            << QPoint( endx - (vy/length)+(vx/length)/2 , endy + (vx/length) +(vy/length)/2 )
-            << QPoint( endx , endy )
-            << QPoint( endx + (vy/length) +(vx/length)/2 , endy - (vx/length) +(vy/length)/2 );
+            << QPoint( endx - (vy/length) , endy + (vx/length) )
+            << QPoint( endx + (vy/length) , endy - (vx/length) );
+
     painter->drawPolygon(polygon);
+
+
+    painter->drawLine(port0->scenePos(),port1->scenePos());
     update();
 }
 
-void genline::updatePos(int sx,int sy,int ex,int ey){
-    startx = sx;//傳入的x和y去畫
-    starty = sy;
-    endx = ex;
-    endy = ey;
-
-
-}

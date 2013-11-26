@@ -1,15 +1,18 @@
 #include "assoline.h"
 
 
-assoline::assoline(int sx , int sy , int ex , int ey)
+assoline::assoline(UMLObject *s,UMLObject *e)
 {
-    this->setLine(sx,sy,ex,ey);
+    this->port0 = s;
+    this->port1 = e;
+
+    setLine(s->pos().x(),s->pos().y(),e->pos().y(),e->pos().y());
 }
 
 
 void assoline::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    QGraphicsLineItem::paint(painter,option,widget);
+    painter->drawLine(port0->scenePos(),port1->scenePos());
     update();
 }
 

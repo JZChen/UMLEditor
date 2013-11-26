@@ -11,21 +11,16 @@
 #include <QString>
 #include <QInputDialog>
 #include <QGraphicsLineItem>
+#include "lineobject.h"
+#include "umlobject.h"
 
-class assoline : public QGraphicsLineItem
+class assoline : public LineObject
 {
     public:
 
-        assoline(int sx , int sy , int ex , int ey);
+        assoline(UMLObject *s,UMLObject *e);
         void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-        /*
-        int startx , starty , endx , endy;
-        bool selected;
-        bool selected1;
-        QRectF rec;
-        int num;
-        QString str;
-        */
+
 
     protected:
         void mousePressEvent(QGraphicsSceneMouseEvent *event);

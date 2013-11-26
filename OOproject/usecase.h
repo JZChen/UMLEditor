@@ -10,18 +10,15 @@
 #include <QGraphicsSceneDragDropEvent>
 #include <QString>
 #include <QInputDialog>
+#include "umlobject.h"
 
-class usecase : public QGraphicsItem
+class usecase : public UMLObject
 {
     public:
         usecase(int sx , int sy );
         QRectF boundingRect() const;
         void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-        int startx , starty , endx , endy;
-        bool selected;
-        QRectF rec;
-        int num;
-        QString str;
+
 
     protected:
         void mousePressEvent(QGraphicsSceneMouseEvent *event);

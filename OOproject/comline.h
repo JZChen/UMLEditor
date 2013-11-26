@@ -6,12 +6,14 @@
 #include<QGraphicsItem>
 #include<cmath>
 #include<QGraphicsLineItem>
+#include"umlobject.h"
+#include"lineobject.h"
 
-class comline : public QGraphicsLineItem
+class comline : public LineObject
 {
 public:
-    comline(int sx , int sy , int ex , int ey);
 
+    comline::comline(UMLObject *s,UMLObject *e);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
 };

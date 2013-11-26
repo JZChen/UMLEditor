@@ -13,10 +13,12 @@ public:
     LineObject();
     LineObject(UMLObject *s,UMLObject *e);
     void setFlag(GraphicsItemFlag flag, bool enabled);
+    
+    
     // 0 stands for start , 1 stands for end
     UMLObject *port0;
     UMLObject *port1;
-
+    int p1,p2;
 };
 
 #endif // LINEOBJECT_H
