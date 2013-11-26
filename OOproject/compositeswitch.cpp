@@ -33,6 +33,13 @@ void CompositeSwitch::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     if( secItem && firstItem){
         qDebug()<<"Got one too" << secItem->pos();
         comline *ln = new comline((UMLObject*)firstItem,(UMLObject*)secItem);
+
+
+        int p0 = ((UMLObject*)( firstItem ))->getPortNumber( QPoint(sx,sy));
+        int p1 = ((UMLObject*)( secItem ))->getPortNumber( QPoint(ex,ey));
+        ln->p0 = p0;
+        ln->p1 = p1;
+
         currentScene->addItem(ln);
     }
 

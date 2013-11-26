@@ -10,10 +10,8 @@ public:
     UMLObject();
     UMLObject(int sx , int sy);
     void setSelection(bool enable);
-    /*
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    */
+    int getPortNumber(QPoint pt);
+    QPoint getPortPos(int portNumber);
     QVector<QGraphicsLineItem> ports[4];
 
 /*

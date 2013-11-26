@@ -23,23 +23,21 @@ int UMLObject::getPortNumber(QPoint pt)
     // this object's center point
     int x = this->scenePos().x()+30 , y = this->scenePos().y()+30;
 
-    // on right top
-    if( pt.y() + pt.x() >= x + y){
-        // on right buttom
-        if( pt.x() - pt.y() >= x - y ){
+    // on right side
+    if( pt.x() - pt.y() >= x - y){
+
+        if( pt.x() + pt.y() >= x + y ){
             return 1;
         }else{
-        // on left top
             return 0;
         }
     }
     else{
-    // on left buttom
-        // on right buttom
-        if( pt.x() - pt.y() >= x - y ){
+    // on letf side
+        if( pt.x() + pt.y() >= x + y ){
             return 2;
         }else{
-        // on left top
+
             return 3;
         }
 

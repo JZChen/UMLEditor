@@ -12,7 +12,8 @@ assoline::assoline(UMLObject *s,UMLObject *e)
 
 void assoline::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    painter->drawLine(port0->scenePos(),port1->scenePos());
+    painter->drawLine(port0->scenePos()+ port0->getPortPos(p0) ,port1->scenePos()+ port1->getPortPos(p1));
+
     update();
 }
 
